@@ -4,7 +4,7 @@ require './lib/link.rb'
 class Bookmark < Sinatra::Base
 
   get '/' do
-    # @links = Link.all
+    @links = Link.all
     erb(:index)
   end
 

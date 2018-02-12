@@ -8,6 +8,9 @@
   <ul>
 
   </ul>
-  <p><%= p Link.all %></p>
+  <p><%  @links.each do |line| %>
+     <%= line %>
+     <% end %>
+   </p>
 </body>
 </html>

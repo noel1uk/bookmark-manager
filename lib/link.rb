@@ -10,15 +10,16 @@ class Link
 
     # Output a table of current connections to the DB
     conn = PG.connect( dbname: 'bookmark_manager' )
-    conn.exec( "SELECT * FROM links" ) do |result|
-      puts " #{result}    id | url         "
-      result.each do |row|
-        puts " %7d | %-16s | #{row} "
-          row.values_at('id', 'url')
-      end
+    result = conn.exec( "SELECT * FROM links" )
+    # p result.column_values(1)
+    result.each do |line|
+      line
     end
   end
-
+  # Gives the result as strings
+  # result.map do |line|
+  #   line['url']
+  # end
 
   def initialize
 
