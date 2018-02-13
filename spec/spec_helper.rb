@@ -1,5 +1,5 @@
-
-ENV['RACK_ENV'] = 'test'
+ENV['ENVIRONMENT'] = 'test'
+ENV['RACK_ENV'] = 'development'
 
 require File.join(File.dirname(__FILE__), '..', 'app.rb')
 
@@ -12,6 +12,7 @@ Capybara.app = Bookmark
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
+    p expectations
   end
   config.mock_with :rspec do |mocks|
     mocks.verify_partial_doubles = true

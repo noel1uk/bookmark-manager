@@ -5,12 +5,11 @@
 </head>
 <body>
   <h1>testing that noel is still alive</h1>
-  <ul>
-
+  <ul><%  @links.each do |line| %>
+    <li><%= line %></li>
+       <% end %>
   </ul>
-  <p><%  @links.each do |line| %>
-     <%= line %>
-     <% end %>
+  <p>
    </p>
 </body>
 </html>
