@@ -10,6 +10,9 @@ require 'rspec'
 Capybara.app = Bookmark
 
 RSpec.configure do |config|
+  config.before(:each) do
+    require_relative './test_database_setup'
+  end
   config.expect_with :rspec do |expectations|
     expectations.include_chain_clauses_in_custom_matcher_descriptions = true
     p expectations

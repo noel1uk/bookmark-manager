@@ -1,6 +1,5 @@
 p 'setting up the database'
 
-require 'pg'
 # connect to database
 conn = PG.connect(dbname: 'bookmark_manager_test')
 # truncate database
