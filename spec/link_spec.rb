@@ -7,4 +7,12 @@ describe Link do
       expect(Link.all).to be_an_instance_of(Array)
     end
   end
+  describe '.add' do
+    it "adds a new link" do
+      Link.add('www.mywebsite')
+      expect(Link.all).to include 'www.mywebsite'
+    end
+  end
 end
+
+describe '.create'

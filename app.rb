@@ -1,6 +1,6 @@
 require 'sinatra/base'
 require './lib/link.rb'
-
+require './lib/database_connection_setup.rb'
 class Bookmark < Sinatra::Base
 
   get '/' do
@@ -10,13 +10,7 @@ class Bookmark < Sinatra::Base
 
   post '/create_link' do
     url = params['url']
-    if ENV["ENVIRONMENT"] == 'test'
-      conn = PG.connect( dbname: 'bookmark_manager_test' )
-    else
-      conn = PG.connect( dbname: 'bookmark_manager' )
-    end
-    p url
-    conn.exec( "INSERT INTO links (url) VALUES ('#{url}')")
+    Link.add(url)
     redirect('/')
   end
 
