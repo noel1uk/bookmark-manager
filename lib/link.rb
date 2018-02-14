@@ -14,21 +14,14 @@ class Link
       conn = PG.connect( dbname: 'bookmark_manager' )
     end
     result = conn.exec( "SELECT * FROM links" )
-    # p result.column_values(1)
-    # temp = result.map
     result.map do |line|
       line['url']
     end
-    # result.each do |line|
-    #   line
-    # end
   end
-  # Gives the result as strings
-  # result.map do |line|
-  #   line['url']
-  # end
 
-  # def initialize
-  #
-  # end
+  def self.add(url)
+    url = url
+    conn = PG.connect( dbname: 'bookmark_manager_test' )
+    conn.exec( "INSERT INTO links (url) VALUES (#{url})")
+  end
 end

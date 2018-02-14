@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title></title>
-</head>
-<body>
-  <h1>testing that noel is still alive</h1>
-  <ul><%  @links.each do |line| %>
-    <li><%= line %></li>
-       <% end %>
-  </ul>
-  <p>
-   </p>
-</body>
+  <head>
+    <title></title>
+  </head>
+  <body>
+    <h1>testing that noel is still alive</h1>
+    <ul><%  @links.each do |line| %>
+      <li><%= line %></li>
+         <% end %>
+    </ul>
+    <form action="/create_link" method="post">
+      <input type="text" name="url" />
+      <input type="submit" value="Save" />
+    </form>
+  </body>
 </html>

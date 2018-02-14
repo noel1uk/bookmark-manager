@@ -1,3 +1,4 @@
+require 'pg'
 p 'setting up the database'
 
 # connect to database
