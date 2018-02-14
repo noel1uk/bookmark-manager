@@ -10,16 +10,16 @@ class Bookmark < Sinatra::Base
 
   post '/create_link' do
     url = params['url']
-    conn = PG.connect(dbname: 'bookmark_manager_test')
+    if ENV["ENVIRONMENT"] == 'test'
+      conn = PG.connect( dbname: 'bookmark_manager_test' )
+    else
+      conn = PG.connect( dbname: 'bookmark_manager' )
+    end
+    p url
     conn.exec( "INSERT INTO links (url) VALUES ('#{url}')")
-
     redirect('/')
-    # url = params['url']
-    # connection = PG.connect(dbname: 'bookmark_manager_test')
-    # connection.exec("INSERT INTO links (url) VALUES('#{url}')")
-    # redirect '/'
   end
 
-
   run! if app_file == $0
+
 end
